@@ -6,8 +6,8 @@ on:
 jobs:
   spdx-test:
     runs-on: ubuntu-latest
-      steps:
-        - uses: actions/attest-sbom@v1
-          with:
-            subject-path: '.github/workflows/spdx.yaml'
-            sbom-path: 'sbom.spdx.json'
+    steps:
+      - uses: actions/attest-sbom@v1
+        with:
+          subject-path: '.github/workflows/spdx.yaml'
+          sbom-path: 'sbom.spdx.json'
