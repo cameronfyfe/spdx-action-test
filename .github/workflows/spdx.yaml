@@ -3,10 +3,20 @@ name: TEST - SPDX
 on:
   push:
 
+permissions:
+  id-token: write
+  attestations: write
+  contents: read
+
 jobs:
   spdx-test:
     runs-on: ubuntu-latest
     steps:
+      - uses: anchore/sbom-action@v0
+        with:
+          path: ./
+          format: 'spdx-json'
+          output-file: 'sbom.spdx.json'
       - uses: actions/attest-sbom@v1
         with:
           subject-path: '.github/workflows/spdx.yaml'
