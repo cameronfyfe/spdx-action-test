@@ -17,6 +17,7 @@ jobs:
           path: ./
           format: 'spdx-json'
           output-file: 'sbom.spdx.json'
+      - run: echo '#SPDX Test' >> $GITHUB_STEP_SUMMARY
       - run: echo '```json' >> $GITHUB_STEP_SUMMARY
       - run: cat sbom.spdx.json | jq >> $GITHUB_STEP_SUMMARY
       - run: echo '```' >> $GITHUB_STEP_SUMMARY
