@@ -17,6 +17,8 @@ jobs:
           path: ./
           format: 'spdx-json'
           output-file: 'sbom.spdx.json'
+      - run: pwd
+      - run: ls
       - uses: actions/attest-sbom@v1
         with:
           subject-path: './README.md'
