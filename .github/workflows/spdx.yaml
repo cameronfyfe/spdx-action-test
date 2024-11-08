@@ -22,7 +22,10 @@ jobs:
         with:
           subject-path: 'README.md'
           sbom-path: 'sbom.spdx.json'
+          bundle-path: 'bundle'
       - run: echo '#SPDX Test' >> $GITHUB_STEP_SUMMARY
       - run: echo '```json' >> $GITHUB_STEP_SUMMARY
       - run: cat sbom.spdx.json | jq >> $GITHUB_STEP_SUMMARY
       - run: echo '```' >> $GITHUB_STEP_SUMMARY
+      - run: echo 'BUNDLE' >> $GITHUB_STEP_SUMMARY
+      - run: cat bundle
