@@ -12,16 +12,15 @@ jobs:
   spdx-test:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - uses: anchore/sbom-action@v0
         with:
           path: ./
           format: 'spdx-json'
           output-file: 'sbom.spdx.json'
-      - run: pwd
-      - run: ls
       - uses: actions/attest-sbom@v1
         with:
-          subject-path: './README.md'
+          subject-path: 'README.md'
           sbom-path: 'sbom.spdx.json'
       - run: echo '#SPDX Test' >> $GITHUB_STEP_SUMMARY
       - run: echo '```json' >> $GITHUB_STEP_SUMMARY
