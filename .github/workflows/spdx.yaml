@@ -19,7 +19,7 @@ jobs:
           output-file: 'sbom.spdx.json'
       - uses: actions/attest-sbom@v1
         with:
-          subject-path: 'README.md'
+          subject-path: './README.md'
           sbom-path: 'sbom.spdx.json'
       - run: echo '#SPDX Test' >> $GITHUB_STEP_SUMMARY
       - run: echo '```json' >> $GITHUB_STEP_SUMMARY
